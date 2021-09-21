@@ -101,7 +101,7 @@
         }
 
         .item {
-            width: 24mm;
+            width: 60mm;
         }
 
         .itemtext {
@@ -133,84 +133,91 @@
 
 <div id="hello">
     <div>
-    <div id="invoice-POS">
-    <center id="top">
-        <div class="logo"></div>
-        <div class="info">
-            <h2>METRO GAS</h2>
+        <div id="invoice-POS">
+            <center id="top">
+                <div class="info">
+                    <h2>Mc-Vic Gas</h2>
+                </div>
+                <!--End Info-->
+            </center>
+            <!--End InvoiceTop-->
+
+            <div id="mid">
+                <div class="info">
+                    <!--h2>Contact Info</h2-->
+                    <center>
+                        <p>
+                            No. 3 Farm Road, Igwuruta-Ali</br>
+                            08141360381</br>
+                            Trans. ID: {{ $trans_id }}<br>
+                            @php
+                            echo date('d-M-Y');
+                            @endphp
+                        </p>
+                    </center>
+                </div>
+            </div>
+            <!--End Invoice Mid-->
+
+            <div id="bot" style="height: auto">
+
+                <div id="table">
+                    <table>
+                        <tr class="tabletitle">
+                            <td class="item">
+                                <h4>Item</h4>
+                            </td>
+                            <td class="Hours">
+                                <h4>Qty</h4>
+                            </td>
+
+                        </tr>
+
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Gas</p>
+                            </td>
+                            <td class="tableitem">
+                                @php
+
+                                $qty = round($quantity, 2);
+                                @endphp
+                                <p class="itemtext">{{ $qty }}kg</p>
+                            </td>
+
+                        </tr>
+
+
+
+
+                        <tr class="tabletitle">
+                            <td></td>
+                            <td class="Rate">
+
+                            </td>
+                        </tr>
+                        <td class="payment">
+                            <h2>Total</h2>
+                            <h2>#{{ number_format($cost) }}</h2>
+                        </td>
+
+                    </table>
+                    <strong>Rate: </strong> {{ $rate }}/kg<br>
+                    <strong>Coupon code:</strong> {{$coupon}}<br>
+                    <strong>Cashier:</strong> {{ $cashier }}<br>
+                    <strong>Discount:</strong> #{{ $discount }}<br>
+                    <h3>{{ $status }}</h3>
+                </div>
+                <!--End Table-->
+
+                <div id="legalcopy">
+                    <p class="legal"><strong><i>Thank you for your patronage!</i></strong></p>
+                </div>
+
+            </div>
+            <!--End InvoiceBot-->
         </div>
-        <!--End Info-->
-    </center>
-    <!--End InvoiceTop-->
-
-    <div id="mid">
-        <div class="info">
-            <!--h2>Contact Info</h2-->
-            <p>
-                Address : No. 3 Farm Road, Igwuruta-Ali</br>
-                Email : info@metrogas.com</br>
-                Phone : 08099008877</br>
-            </p>
-        </div>
-    </div>
-    <!--End Invoice Mid-->
-
-    <div id="bot">
-
-        <div id="table">
-            <table>
-                <tr class="tabletitle">
-                    <td class="item">
-                        <h4>Item</h4>
-                    </td>
-                    <td class="Hours">
-                        <h4>Qty</h4>
-                    </td>
-                    <td class="Rate">
-                        <h4>Sub Total</h4>
-                    </td>
-                </tr>
-
-                <tr class="service">
-                    <td class="tableitem">
-                        <p class="itemtext">Cooking gas</p>
-                    </td>
-                    <td class="tableitem">
-                        <p class="itemtext">{{ $quantity }}</p>
-                    </td>
-                    <td class="tableitem">
-                        <p class="itemtext">#{{ number_format($cost) }}</p>
-                    </td>
-                </tr>
-
-
-
-
-                <tr class="tabletitle">
-                    <td></td>
-                    <td class="Rate">
-                        <h2>Total</h2>
-                    </td>
-                    <td class="payment">
-                        <h2>#{{ number_format($cost) }}</h2>
-                    </td>
-                </tr>
-
-            </table>
-            <strong>Rate: </strong> {{ $rate }}/kg<br>
-            <strong>Coupon code:</strong> {{$coupon}}<br>
-            <strong>Cashier:</strong> {{ $cashier }}
-        </div>
-        <!--End Table-->
-
-        <div id="legalcopy">
-            <p class="legal"><strong>Thank you for your patronising us!</strong></p>
-        </div>
-
-    </div>
-    <!--End InvoiceBot-->
-</div>
-<!--End Invoice-->
+        <!--End Invoice-->
     </div><a href="#" onclick="printInfo(this)"><button>Print</button></a>
     <a href="{{route('pos')}}"><button>Go back</button></a>
 </div>

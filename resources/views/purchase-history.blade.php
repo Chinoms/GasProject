@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Blank Page</h1>
+                    <h1>Gas Purchase History</h1>
                 </div>
                 
             </div>
@@ -21,7 +21,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Title</h3>
+                <h3 class="card-title">View history of purchases</h3>
 
                 <div class="card-tools">
                     
@@ -55,14 +55,14 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$purchaseHistory->links() }}
+                        
                     </div>
                     <!-- /.row -->
                 </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                {{-- Footer--}}
+            {{$purchaseHistory->links() }}
             </div>
             <!-- /.card-footer-->
         </div>

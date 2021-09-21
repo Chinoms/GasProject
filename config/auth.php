@@ -71,6 +71,11 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'cashiers' => [
+            'driver' => 'eloquent',
+            'model' => App\Cashier::class
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

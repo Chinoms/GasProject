@@ -14,12 +14,16 @@ class CreateCashiersTable extends Migration
     public function up()
     {
         Schema::create('cashiers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->char('fname', 25)->default("NULL");
-            $table->char('lname', 25)->default("NULL");
-            $table->char('email', 30)->default("NULL")->unique();
-            $table->char('phone')->default("NULL");
+            $table->id();
+            $table->string('name');
+            $table->string('lname', 25);
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->rememberToken();
+            $table->unsignedInteger('basic_salary')->default(0);
+            $table->string('ref_code', 7)->default('NULL');
+            $table->unsignedInteger('staff_type')->default(0);
             $table->timestamps();
         });
     }

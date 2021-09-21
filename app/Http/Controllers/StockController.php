@@ -16,7 +16,9 @@ class StockController extends Controller
     public function index()
     {
         //display purchase history
-        $purchaseHistory = DB::table('gas_purchases')->paginate(10);
+        $purchaseHistory = DB::table('gas_purchases')
+        ->orderBy('id', 'DESC')
+        ->paginate(10);
         return view('purchase-history', compact('purchaseHistory'));
     }
 
